@@ -1,83 +1,41 @@
 package io.catnikq.hotel_app;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Room {
-    private String roomNumber;
-    private String floor;
+    private int roomNumber;
     private String roomType;
-    private Float roomPrice;
-    private Boolean roomStatus;
-    private List<String> amenities;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
-
-    //Getters
-    public String getRoomNumber() {
+    private double price;
+    private String status;
+    
+    //Getters and Setters
+    public int getRoomNumber() {
         return roomNumber;
     }
 
-    public String getFloor() {
-        return floor;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public String getRoomType() {
         return roomType;
     }
 
-    public Float getRoomPrice() {
-        return roomPrice;
-    }
-
-    public Boolean getRoomStatus() {
-        return roomStatus;
-    }
-
-    public List<String> getAmenities() {
-        return amenities;
-    }
-
-    public LocalDate getCheckInDate() {
-        return checkInDate;
-    }
-
-    public LocalDate getCheckOutDate() {
-        return checkOutDate;
-    }
-    
-    //Setters
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public void setFloor(String floor) {
-        this.floor = floor;
-    }
-
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
 
-    public void setRoomPrice(Float roomPrice) {
-        this.roomPrice = roomPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setRoomStatus(Boolean roomStatus) {
-        this.roomStatus = roomStatus;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public void setAmenities(List<String> amenities) {
-        this.amenities = amenities;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setStatus(String status) {
+        this.status = status;
     }
-
-    public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
-    
 }
