@@ -1,17 +1,20 @@
 package io.catnikq.hotel_app;
 
 public class Employee extends Person {
+    //Employee attributes
     private String employeeID;
     private String position;
     private Float salary;
-
-    public Employee(String name, String address, String phoneNumber, Integer age, String gender) {
+    
+    //Constructor
+    public Employee(String employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
         super(name, address, phoneNumber, age, gender);
         this.employeeID = employeeID;
         this.position = position;
         this.salary = salary;
     }
-
+    
+    //Getters and Setters
     public String getEmployeeID() {
         return employeeID;
     }

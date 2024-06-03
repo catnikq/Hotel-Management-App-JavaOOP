@@ -5,12 +5,11 @@ import java.util.List;
 
 public class Booking {
     private int bookingID;
-    private int customerID;
-    private int roomNumber;
+    private Customer customer;
+    private Room room;
     private Date checkInDate;
     private Date checkOutDate;
     private List<Service> services;
-
     
     
     //Getters and Setters
@@ -20,22 +19,6 @@ public class Booking {
 
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
-    }
-
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
     }
 
     public Date getCheckInDate() {
@@ -60,6 +43,22 @@ public class Booking {
 
     public void setServices(List<Service> services) {
         this.services = services;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
     
     

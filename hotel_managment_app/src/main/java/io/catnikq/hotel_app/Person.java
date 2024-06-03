@@ -5,11 +5,11 @@ public class Person {
     private String name;
     private String address;
     private String phoneNumber;
-    private Integer age;
+    private int age;
     private String gender;
     
     // Constructor to initialize the Person object
-    public Person(String name, String address, String phoneNumber, Integer age, String gender) {
+    public Person(String name, String address, String phoneNumber, int age, String gender) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -44,12 +44,12 @@ public class Person {
     }
 
     // Getter and Setter methods for age
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
  
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
     
