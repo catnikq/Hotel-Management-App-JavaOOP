@@ -7,8 +7,15 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
         <exec.mainClass>io.catnikq.hotel_app.Hotel_managment_app</exec.mainClass>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
+    <dependencies>
+        <!-- PostgreSQL JDBC Driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.24</version>
+        </dependency>
+    </dependencies>
 </project>
