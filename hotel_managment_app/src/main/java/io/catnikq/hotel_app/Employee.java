@@ -7,8 +7,8 @@ public class Employee extends Person {
     private Float salary;
     
     //Constructor
-    public Employee(String employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
-        super(name, address, phoneNumber, age, gender);
+    public Employee(int id, String employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
+        super(id, name, address, phoneNumber, age, gender);
         this.employeeID = employeeID;
         this.position = position;
         this.salary = salary;
@@ -37,9 +37,5 @@ public class Employee extends Person {
 
     public void setSalary(Float salary) {
         this.salary = salary;
-    }
-    
-    
-    
-    
+    } 
 }

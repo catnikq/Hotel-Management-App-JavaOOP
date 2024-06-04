@@ -1,22 +1,34 @@
 package io.catnikq.hotel_app;
 
 public class Person {
+
     // Variables to store personal information
+    private int id;
     private String name;
     private String address;
     private String phoneNumber;
     private int age;
     private String gender;
-    
+
     // Constructor to initialize the Person object
-    public Person(String name, String address, String phoneNumber, int age, String gender) {
+    public Person(int id, String name, String address, String phoneNumber, int age, String gender) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.age = age;
+        this.gender = gender;
     }
-    
-    // Getter and Setter methods for name
+
+    //Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,7 +37,6 @@ public class Person {
         this.name = name;
     }
 
-    // Getter and Setter methods for address
     public String getAddress() {
         return address;
     }
@@ -34,7 +45,6 @@ public class Person {
         this.address = address;
     }
 
-    // Getter and Setter methods for phone number
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -43,22 +53,26 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getter and Setter methods for age
     public int getAge() {
         return age;
     }
 
- 
     public void setAge(int age) {
         this.age = age;
     }
-    
-    //Getter and Setter for gender
-    public String getGender(){
+
+    public String getGender() {
         return gender;
     }
-    
-    public void setGender(String gender){
+
+    public void setGender(String gender) {
         this.gender = gender;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber + ", age=" + age + ", gender=" + gender + '}';
+    }
+
 }

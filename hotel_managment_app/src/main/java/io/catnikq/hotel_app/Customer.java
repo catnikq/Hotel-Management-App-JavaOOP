@@ -6,8 +6,8 @@ public class Customer extends Person {
     private int customerID;
     private List<Booking> bookingHistory;
 
-    public Customer(int customerID, List<Booking> bookingHistory, String name, String address, String phoneNumber, Integer age, String gender) {
-        super(name, address, phoneNumber, age, gender);
+    public Customer(int id, int customerID, List<Booking> bookingHistory, String name, String address, String phoneNumber, Integer age, String gender) {
+        super(id, name, address, phoneNumber, age, gender);
         this.customerID = customerID;
         this.bookingHistory = bookingHistory;
     }
