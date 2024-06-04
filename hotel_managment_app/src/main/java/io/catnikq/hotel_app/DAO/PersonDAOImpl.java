@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDAOImpl implements PersonDAO {
-
+    
+    //CRUD Retrieve
     @Override
     public Person get(int id) throws SQLException {
         Connection con = Database.getConnection();
@@ -40,7 +41,8 @@ public class PersonDAOImpl implements PersonDAO {
         Database.closeConnection(con);
         return person;
     }
-
+    
+    //CRUD Retrieve All
     @Override
     public List<Person> getAll() throws SQLException {
         Connection con = Database.getConnection();
@@ -67,12 +69,15 @@ public class PersonDAOImpl implements PersonDAO {
 
         return person;
     }
-
+    
+    //CRUD Create or Update
     @Override
     public int save(Person person) throws SQLException {
         return 0;
     }
-
+    
+    
+    //CRUD Create
     @Override
     public int insert(Person person) throws SQLException {
         Connection con = Database.getConnection();
@@ -94,12 +99,32 @@ public class PersonDAOImpl implements PersonDAO {
 		
 		return result;
     }
-
+    
+    //CRUD Update
     @Override
     public int update(Person person) throws SQLException {
-        return 0;
-    }
+        Connection connection = Database.getConnection();
 
+		String sql = "UPDATE person set name = ?, address = ?, phone_number = ?, age = ?, gender = ?  where id = ?";
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setString(1, person.getName());
+                ps.setString(2, person.getAddress());
+                ps.setString(3, person.getPhoneNumber());
+                ps.setInt(4, person.getAge());
+                ps.setString(5, person.getGender());
+		ps.setInt(6, person.getId());
+                
+		int result = ps.executeUpdate();
+		
+		Database.closePreparedStatement(ps);
+		Database.closeConnection(connection);
+		
+		return result;
+    }
+    
+    //CRUD Delete
     @Override
     public int delete(Person person) {
         return 0;
