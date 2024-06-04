@@ -2,24 +2,24 @@ package io.catnikq.hotel_app;
 
 public class Employee extends Person {
     //Employee attributes
-    private String employeeID;
+    private int employeeID;
     private String position;
     private Float salary;
     
     //Constructor
-    public Employee(int id, String employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
+    public Employee(int id, int employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
         super(id, name, address, phoneNumber, age, gender);
         this.employeeID = employeeID;
         this.position = position;
         this.salary = salary;
     }
-    
+      
     //Getters and Setters
-    public String getEmployeeID() {
+    public int getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(String employeeID) {
+    public void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
     }
 
