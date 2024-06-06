@@ -1,20 +1,27 @@
-package io.catnikq.hotel_app;
+package io.catnikq.hotel_app.model;
 
 public class Employee extends Person {
+
     //Employee attributes
     private int employeeID;
     private String position;
-    private Float salary;
-    
-    //Constructor
-    public Employee(int id, int employeeID, String position, Float salary, String name, String address, String phoneNumber, int age, String gender) {
+    private double salary;
+
+    // Constructor
+    public Employee(int id, int employeeID, String position, double salary, String name, String address, String phoneNumber, int age, String gender) {
         super(id, name, address, phoneNumber, age, gender);
         this.employeeID = employeeID;
         this.position = position;
         this.salary = salary;
     }
-      
-    //Getters and Setters
+
+    // Default constructor
+    public Employee() {
+
+    }
+
+
+    // Getters and Setters
     public int getEmployeeID() {
         return employeeID;
     }
@@ -31,11 +38,12 @@ public class Employee extends Person {
         this.position = position;
     }
 
-    public Float getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(Float salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
-    } 
+    }
+
 }

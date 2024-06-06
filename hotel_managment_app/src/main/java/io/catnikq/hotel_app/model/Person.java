@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app;
+package io.catnikq.hotel_app.model;
 
 public class Person {
 
@@ -20,7 +20,12 @@ public class Person {
         this.gender = gender;
     }
 
-    //Getters and Setters
+    // Default constructor
+    public Person() {
+
+    }
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -69,7 +74,7 @@ public class Person {
         this.gender = gender;
     }
 
-    //toString
+    // toString
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber + ", age=" + age + ", gender=" + gender + '}';

@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app;
+package io.catnikq.hotel_app.model;
 
 import java.time.LocalDate;
 
@@ -8,7 +8,7 @@ public class Service {
     private String serviceDescription;
     private double servicePrice;
     
-    //Getters and Setters
+    // Getters and Setters
     public int getServiceID() {
         return serviceID;
     }

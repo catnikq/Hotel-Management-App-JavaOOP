@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app;
+package io.catnikq.hotel_app.model;
 
 public class Room {
     private int roomNumber;
