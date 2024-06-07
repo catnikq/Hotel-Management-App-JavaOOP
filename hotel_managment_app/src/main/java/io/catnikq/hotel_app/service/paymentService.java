@@ -5,9 +5,7 @@ import inMemoryDAO.PaymentDAO;
 import inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.model.Booking;
 import io.catnikq.hotel_app.model.Payment;
-import io.catnikq.hotel_app.mockData.inMemoryDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class paymentService {
@@ -23,7 +21,7 @@ public class paymentService {
     }
 
     public void addPayment(Payment payment) {
-        Booking booking = bookingDAO.getById(payment.getBookingId());
+        Booking booking = bookingDAO.getById(payment.getBookingID());
         if (booking != null) {
             roomDAO.getByNumber(booking.getRoom().getRoomNumber()).setStatus("Available");
             roomDAO.update(booking.getRoom());

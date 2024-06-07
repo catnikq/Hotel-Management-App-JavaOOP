@@ -2,9 +2,7 @@ package io.catnikq.hotel_app.service;
 
 import inMemoryDAO.EmployeeDAO;
 import io.catnikq.hotel_app.model.Employee;
-import io.catnikq.hotel_app.mockData.inMemoryDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class employeeService {
