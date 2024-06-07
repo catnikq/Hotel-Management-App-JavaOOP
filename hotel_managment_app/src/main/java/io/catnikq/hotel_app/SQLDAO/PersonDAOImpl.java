@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app.DAO;
+package io.catnikq.hotel_app.SQLDAO;
 
 import io.catnikq.hotel_app.model.Database;
 import io.catnikq.hotel_app.model.Person;

@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app.DAO;
+package io.catnikq.hotel_app.SQLDAO;
 
 import java.sql.SQLException;
 import java.util.List;
