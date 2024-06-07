@@ -1,11 +1,12 @@
 package io.catnikq.hotel_app.model;
 
 public class Room {
+
     private int roomNumber;
     private String roomType;
     private double price;
     private String status;
-    
+
     //Getters and Setters
     public int getRoomNumber() {
         return roomNumber;
@@ -38,4 +39,14 @@ public class Room {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Room{" + "roomNumber=" + roomNumber
+                + ", roomType=" + roomType
+                + ", price=" + price
+                + ", status=" + status + '}';
+    }
+
 }

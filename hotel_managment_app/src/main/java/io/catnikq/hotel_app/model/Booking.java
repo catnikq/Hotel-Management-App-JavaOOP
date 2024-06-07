@@ -1,5 +1,6 @@
 package io.catnikq.hotel_app.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,23 +13,23 @@ public class Booking {
     private Date checkOutDate;
     private List<Service> services;
     private double totalPrice;
-    
+
     // Constructor
-    public Booking(int bookingID, Customer customer, Room room, Date checkInDate, Date checkOutDate, List<Service> services, double totalPrice) {
+    public Booking(int bookingID, Customer customer, Room room, Date checkInDate, Date checkOutDate, double totalPrice) {
         this.bookingID = bookingID;
         this.customer = customer;
         this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
-        this.services = services;
+        this.services = new ArrayList<>();
         this.totalPrice = totalPrice;
     }
-    
+
     // Default constructor
-    public Booking(){
-        
+    public Booking() {
+        this.services = new ArrayList<>();
     }
-    
+
     // Getters and Setters
     public int getBookingID() {
         return bookingID;
@@ -84,6 +85,17 @@ public class Booking {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" + "bookingID=" + bookingID
+                + ", customer=" + customer
+                + ", room=" + room
+                + ", checkInDate=" + checkInDate
+                + ", checkOutDate=" + checkOutDate
+                + ", services=" + services
+                + ", totalPrice=" + totalPrice + '}';
     }
 
 }

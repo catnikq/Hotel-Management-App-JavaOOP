@@ -9,7 +9,7 @@ public class Payment {
     private double amount;
     private Date paymentDate;
     private String paymentMethod;
-    
+
     // Constructor
     public Payment(int paymentId, double amount, Date paymentDate, String paymentMethod) {
         this.paymentID = paymentId;
@@ -17,11 +17,12 @@ public class Payment {
         this.paymentDate = paymentDate;
         this.paymentMethod = paymentMethod;
     }
+
     // Default constructor
-    public Payment(){
-        
+    public Payment() {
+
     }
-    
+
     // Getters and Setters
     public int getPaymentID() {
         return paymentID;
@@ -61,6 +62,16 @@ public class Payment {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Payment{" + "paymentID=" + paymentID
+                + ", bookingID=" + bookingID
+                + ", amount=" + amount
+                + ", paymentDate=" + paymentDate
+                + ", paymentMethod=" + paymentMethod + '}';
     }
 
 }

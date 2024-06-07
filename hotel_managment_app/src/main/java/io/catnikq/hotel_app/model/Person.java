@@ -74,10 +74,15 @@ public class Person {
         this.gender = gender;
     }
 
-    // toString
+    // toString method
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber + ", age=" + age + ", gender=" + gender + '}';
+        return "Person{" + "id=" + id
+                + ", name=" + name
+                + ", address=" + address
+                + ", phoneNumber=" + phoneNumber
+                + ", age=" + age
+                + ", gender=" + gender + '}';
     }
 
 }

@@ -20,7 +20,6 @@ public class Employee extends Person {
 
     }
 
-
     // Getters and Setters
     public int getEmployeeID() {
         return employeeID;
@@ -44,6 +43,18 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "employeeID=" + employeeID
+                + ", position=" + position
+                + ", salary=" + salary
+                + ", name='" + getName() + '\''
+                + ", address='" + getAddress() + '\''
+                + ", phoneNumber='" + getPhoneNumber() + '\''
+                + ", age=" + getAge()
+                + ", gender='" + getGender() + '\'' + '}';
     }
 
 }

@@ -1,5 +1,6 @@
 package io.catnikq.hotel_app.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer extends Person {
@@ -8,15 +9,15 @@ public class Customer extends Person {
     private List<Booking> bookingHistory;
 
     // Constructor
-    public Customer(int id, int customerID, List<Booking> bookingHistory, String name, String address, String phoneNumber, Integer age, String gender) {
+    public Customer(int id, int customerID, String name, String address, String phoneNumber, Integer age, String gender) {
         super(id, name, address, phoneNumber, age, gender);
         this.customerID = customerID;
-        this.bookingHistory = bookingHistory;
+        this.bookingHistory = new ArrayList<>();
     }
 
     // Default constructor
     public Customer() {
-
+        this.bookingHistory = new ArrayList<>();
     }
 
     // Getters and Setters
@@ -34,6 +35,18 @@ public class Customer extends Person {
 
     public void setBookingHistory(List<Booking> bookingHistory) {
         this.bookingHistory = bookingHistory;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "customerID=" + customerID
+                + ", bookingHistory=" + bookingHistory
+                + ", id=" + getId()
+                + ", name='" + getName() + '\'' 
+                + ", address='" + getAddress() + '\''
+                + ", phoneNumber='" + getPhoneNumber() + '\''
+                + ", age=" + getAge()
+                + ", gender='" + getGender() + '\'' + '}';
     }
 
 }

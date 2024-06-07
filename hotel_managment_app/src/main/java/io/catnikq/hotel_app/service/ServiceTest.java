@@ -6,6 +6,7 @@ import io.catnikq.hotel_app.mockData.inMemoryDatabase;
 import java.util.Date;
 
 public class ServiceTest {
+
     public static void main(String[] args) {
         // Initialize services
         employeeService employeeService = new employeeService();
@@ -17,21 +18,25 @@ public class ServiceTest {
 
         // Test Employee Service
         Employee employee = new Employee();
-        employee.setName("Alice");
-        employee.setAddress("123 Main St");
-        employee.setPhoneNumber("555-1234");
+        employee.setName("Jane");
+        employee.setAddress("456 Main St");
+        employee.setPhoneNumber("555-1236");
+        employee.setAge(25);
         employee.setGender("F");
         employee.setPosition("Manager");
         employee.setSalary(50000f);
+
         employeeService.addEmployee(employee);
 
         System.out.println("Employees: " + employeeService.getAllEmployees());
 
         // Test Customer Service
         Customer customer = new Customer();
-        customer.setName("Bob");
-        customer.setAddress("456 Elm St");
-        customer.setPhoneNumber("555-5678");
+        customer.setName("Tom");
+        customer.setAddress("123 Elm St");
+        customer.setPhoneNumber("555-5679");
+        customer.setAge(25);
+        customer.setGender("M");
 
         customerService.addCustomer(customer);
 
@@ -39,9 +44,10 @@ public class ServiceTest {
 
         // Test Room Service
         Room room = new Room();
-        room.setRoomType("Deluxe");
-        room.setPrice(200.00);
+        room.setRoomType("Standard");
+        room.setPrice(100.00);
         room.setStatus("Available");
+
         roomService.addRoom(room);
 
         System.out.println("Rooms: " + roomService.getAllRooms());
@@ -53,6 +59,7 @@ public class ServiceTest {
         booking.setCheckInDate(new Date());
         booking.setCheckOutDate(new Date(System.currentTimeMillis() + 86400000)); // +1 day
         booking.setTotalPrice(room.getPrice()); // Initial total price is room price
+
         bookingService.addBooking(booking);
 
         System.out.println("Bookings: " + bookingService.getAllBookings());
@@ -67,6 +74,7 @@ public class ServiceTest {
         foodService.setServiceName("Room Service - Food");
         foodService.setServiceDescription("Deluxe Food Package");
         foodService.setServicePrice(50.00);
+
         serviceService.addServiceToBooking(booking.getBookingID(), foodService);
 
         System.out.println("Booking Services: " + booking.getServices());
@@ -78,6 +86,7 @@ public class ServiceTest {
         payment.setAmount(booking.getTotalPrice());
         payment.setPaymentDate(new Date());
         payment.setPaymentMethod("Credit Card");
+
         paymentService.addPayment(payment);
 
         System.out.println("Payments: " + paymentService.getAllPayments());
