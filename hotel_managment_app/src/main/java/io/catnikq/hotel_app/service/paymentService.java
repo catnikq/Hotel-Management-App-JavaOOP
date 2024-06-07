@@ -1,5 +1,8 @@
 package io.catnikq.hotel_app.service;
 
+import inMemoryDAO.BookingDAO;
+import inMemoryDAO.PaymentDAO;
+import inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.model.Booking;
 import io.catnikq.hotel_app.model.Payment;
 import io.catnikq.hotel_app.mockData.inMemoryDatabase;
@@ -8,34 +11,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class paymentService {
-     private final roomService roomService = new roomService();
+
+    private PaymentDAO paymentDAO;
+    private BookingDAO bookingDAO;
+    private RoomDAO roomDAO;
+
+    public paymentService(PaymentDAO paymentDAO, BookingDAO bookingDAO, RoomDAO roomDAO) {
+        this.paymentDAO = paymentDAO;
+        this.bookingDAO = bookingDAO;
+        this.roomDAO = roomDAO;
+    }
 
     public void addPayment(Payment payment) {
-        int paymentId = inMemoryDatabase.getNextPaymentId();
-        payment.setPaymentID(paymentId);
-
-        Booking booking = inMemoryDatabase.bookings.get(payment.getBookingID());
+        Booking booking = bookingDAO.getById(payment.getBookingId());
         if (booking != null) {
-            roomService.releaseRoom(booking.getRoom().getRoomNumber());
-            inMemoryDatabase.payments.put(paymentId, payment);
+            roomDAO.getByNumber(booking.getRoom().getRoomNumber()).setStatus("Available");
+            roomDAO.update(booking.getRoom());
+            paymentDAO.save(payment);
         }
     }
 
     public Payment getPaymentById(int paymentId) {
-        return inMemoryDatabase.payments.get(paymentId);
+        return paymentDAO.getById(paymentId);
     }
 
     public void updatePayment(Payment payment) {
-        if (inMemoryDatabase.payments.containsKey(payment.getPaymentID())) {
-            inMemoryDatabase.payments.put(payment.getPaymentID(), payment);
-        }
+        paymentDAO.update(payment);
     }
 
     public void deletePayment(int paymentId) {
-        inMemoryDatabase.payments.remove(paymentId);
+        paymentDAO.delete(paymentId);
     }
 
     public List<Payment> getAllPayments() {
-        return new ArrayList<>(inMemoryDatabase.payments.values());
+        return paymentDAO.getAll();
     }
 }

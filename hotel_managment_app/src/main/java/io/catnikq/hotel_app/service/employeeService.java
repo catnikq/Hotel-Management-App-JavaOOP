@@ -1,5 +1,6 @@
 package io.catnikq.hotel_app.service;
 
+import inMemoryDAO.EmployeeDAO;
 import io.catnikq.hotel_app.model.Employee;
 import io.catnikq.hotel_app.mockData.inMemoryDatabase;
 
@@ -8,32 +9,29 @@ import java.util.List;
 
 public class employeeService {
 
+    private EmployeeDAO employeeDAO;
+
+    public employeeService(EmployeeDAO employeeDAO) {
+        this.employeeDAO = employeeDAO;
+    }
+
     public void addEmployee(Employee employee) {
-        employee.setId(inMemoryDatabase.getNextPersonId());
-        employee.setEmployeeID(inMemoryDatabase.getNextEmployeeId());
-        inMemoryDatabase.employees.put(employee.getEmployeeID(), employee);
-        inMemoryDatabase.persons.put(employee.getId(), employee);
+        employeeDAO.save(employee);
     }
 
     public Employee getEmployeeById(int employeeId) {
-        return inMemoryDatabase.employees.get(employeeId);
+        return employeeDAO.getById(employeeId);
     }
 
     public void updateEmployee(Employee employee) {
-        if (inMemoryDatabase.employees.containsKey(employee.getEmployeeID())) {
-            inMemoryDatabase.employees.put(employee.getEmployeeID(), employee);
-            inMemoryDatabase.persons.put(employee.getId(), employee);
-        }
+        employeeDAO.update(employee);
     }
 
     public void deleteEmployee(int employeeId) {
-        Employee employee = inMemoryDatabase.employees.remove(employeeId);
-        if (employee != null) {
-            inMemoryDatabase.persons.remove(employee.getId());
-        }
+        employeeDAO.delete(employeeId);
     }
 
     public List<Employee> getAllEmployees() {
-        return new ArrayList<>(inMemoryDatabase.employees.values());
+        return employeeDAO.getAll();
     }
 }

@@ -21,6 +21,7 @@ public class inMemoryDatabase {
     public static Map<Integer, Booking> bookings = new HashMap<>();
     public static Map<Integer, Service> services = new HashMap<>();
     public static Map<Integer, Payment> payments = new HashMap<>();
+    
     private static int personIdCounter = 1;
     private static int customerIdCounter = 1;
     private static int employeeIdCounter = 1;
