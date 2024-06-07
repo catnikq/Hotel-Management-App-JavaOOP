@@ -91,5 +91,15 @@ public class ServiceTest {
 
         System.out.println("Payments: " + paymentService.getAllPayments());
         System.out.println("Room Status After Payment: " + roomService.getRoomByNumber(room.getRoomNumber()).getStatus());
+
+        // Update Employee
+        employee.setPosition("Senior Manager");
+        employee.setSalary(60000);
+        employeeService.updateEmployee(employee);
+        System.out.println("Updated Employees: " + employeeService.getAllEmployees());
+
+        // Delete Customer
+        customerService.deleteCustomer(customer.getCustomerID());
+        System.out.println("Customers after deletion: " + customerService.getAllCustomers());
     }
 }
