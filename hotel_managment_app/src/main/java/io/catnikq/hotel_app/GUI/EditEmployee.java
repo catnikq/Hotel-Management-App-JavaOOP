@@ -1,21 +1,20 @@
 package io.catnikq.hotel_app.GUI;
 
-import inMemoryDAO.EmployeeDAO;
-import inMemoryDAO.inMemoryEmployeeDAO;
 import io.catnikq.hotel_app.model.Employee;
 import io.catnikq.hotel_app.controller.EmployeeController;
 import io.catnikq.hotel_app.controller.EmployeeControllerImpl;
+import inMemoryDAO.EmployeeDAO;
+import inMemoryDAO.inMemoryEmployeeDAO;
 import io.catnikq.hotel_app.service.employeeService;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
-public class AddEmployee extends JFrame {
+public class EditEmployee extends JFrame{
     private EmployeeController employeeController;
 
+    private JTextField idText;
     private JTextField nameText;
     private JTextField addressText;
     private JTextField phoneNumberText;
@@ -23,19 +22,24 @@ public class AddEmployee extends JFrame {
     private JTextField genderText;
     private JTextField positionText;
     private JTextField salaryText;
-    private JButton saveButton;
+    private JButton updateButton;
+    private JButton deleteButton;
 
-    public AddEmployee(EmployeeController employeeController) {
+    public EditEmployee(EmployeeController employeeController) {
         this.employeeController = employeeController;
         initComponents();
     }
 
     private void initComponents() {
-        setTitle("Add Employee");
+        setTitle("Edit Employee");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(8, 2));
+        setLayout(new GridLayout(9, 2));
+
+        add(new JLabel("Employee ID:"));
+        idText = new JTextField();
+        add(idText);
 
         add(new JLabel("Name:"));
         nameText = new JTextField();
@@ -65,17 +69,31 @@ public class AddEmployee extends JFrame {
         salaryText = new JTextField();
         add(salaryText);
 
-        saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
+        updateButton = new JButton("Update");
+        updateButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                saveButtonActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
-        add(saveButton);
+        add(updateButton);
+
+        deleteButton = new JButton("Delete");
+        deleteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        add(deleteButton);
     }
 
-    private void saveButtonActionPerformed(ActionEvent evt) {
-        Employee employee = new Employee();
+    private void updateButtonActionPerformed(ActionEvent evt) {
+        int employeeId = Integer.parseInt(idText.getText());
+        Employee employee = employeeController.getEmployeeById(employeeId);
+        if (employee == null) {
+            JOptionPane.showMessageDialog(this, "Employee not found.");
+            return;
+        }
+
         employee.setName(nameText.getText());
         employee.setAddress(addressText.getText());
         employee.setPhoneNumber(phoneNumberText.getText());
@@ -89,8 +107,14 @@ public class AddEmployee extends JFrame {
         employee.setGender(genderText.getText());
         employee.setPosition(positionText.getText());
 
-        employeeController.addEmployee(employee);
-        JOptionPane.showMessageDialog(this, "Employee added successfully!");
+        employeeController.updateEmployee(employee);
+        JOptionPane.showMessageDialog(this, "Employee updated successfully!");
+    }
+
+    private void deleteButtonActionPerformed(ActionEvent evt) {
+        int employeeId = Integer.parseInt(idText.getText());
+        employeeController.deleteEmployee(employeeId);
+        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
     }
 
     public static void main(String[] args) {
@@ -100,7 +124,7 @@ public class AddEmployee extends JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddEmployee(employeeController).setVisible(true);
+                new EditEmployee(employeeController).setVisible(true);
             }
         });
     }
