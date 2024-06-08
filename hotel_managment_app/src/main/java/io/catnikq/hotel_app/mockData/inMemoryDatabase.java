@@ -7,9 +7,7 @@ import io.catnikq.hotel_app.model.Payment;
 import io.catnikq.hotel_app.model.Person;
 import io.catnikq.hotel_app.model.Room;
 import io.catnikq.hotel_app.model.Service;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class inMemoryDatabase {

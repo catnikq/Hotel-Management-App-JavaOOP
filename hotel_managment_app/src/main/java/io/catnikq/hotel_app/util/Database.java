@@ -1,4 +1,4 @@
-package io.catnikq.hotel_app.model;
+package io.catnikq.hotel_app.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,6 +1,6 @@
 package io.catnikq.hotel_app.SQLDAO;
 
-import io.catnikq.hotel_app.model.Database;
+import io.catnikq.hotel_app.util.Database;
 import io.catnikq.hotel_app.model.Person;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

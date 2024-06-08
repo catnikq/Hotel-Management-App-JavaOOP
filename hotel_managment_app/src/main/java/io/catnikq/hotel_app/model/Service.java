@@ -1,13 +1,12 @@
 package io.catnikq.hotel_app.model;
 
-import java.time.LocalDate;
-
 public class Service {
+
     private int serviceID;
     private String serviceName;
     private String serviceDescription;
     private double servicePrice;
-    
+
     // Getters and Setters
     public int getServiceID() {
         return serviceID;
