@@ -9,6 +9,10 @@ import io.catnikq.hotel_app.inMemoryDAO.inMemoryCustomerDAO;
 import io.catnikq.hotel_app.inMemoryDAO.inMemoryBookingDAO;
 import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.controller.*;
+import io.catnikq.hotel_app.model.Booking;
+import io.catnikq.hotel_app.model.Customer;
+import io.catnikq.hotel_app.model.Employee;
+import io.catnikq.hotel_app.model.Room;
 import io.catnikq.hotel_app.service.bookingService;
 import io.catnikq.hotel_app.service.customerService;
 import io.catnikq.hotel_app.service.employeeService;
@@ -16,6 +20,7 @@ import io.catnikq.hotel_app.service.roomService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class ViewData extends JFrame {
 
@@ -90,44 +95,54 @@ public class ViewData extends JFrame {
 
     private void loadEmployeeData() {
         String[] columnNames = {"ID", "Name", "Address", "Phone Number", "Age", "Gender", "Position", "Salary"};
-        Object[][] data = employeeController.getAllEmployees().stream()
+        List<Employee> employees = employeeController.getAllEmployees();
+        Object[][] data = employees.stream()
                 .map(emp -> new Object[]{emp.getId(), emp.getName(), emp.getAddress(), emp.getPhoneNumber(), emp.getAge(), emp.getGender(), emp.getPosition(), emp.getSalary()})
                 .toArray(Object[][]::new);
+        System.out.println("Loading employee data: " + employees);
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
     }
 
     private void loadCustomerData() {
         String[] columnNames = {"ID", "Name", "Address", "Phone Number", "Age", "Gender"};
-        Object[][] data = customerController.getAllCustomers().stream()
+        List<Customer> customers = customerController.getAllCustomers();
+        Object[][] data = customers.stream()
                 .map(cust -> new Object[]{cust.getId(), cust.getName(), cust.getAddress(), cust.getPhoneNumber(), cust.getAge(), cust.getGender()})
                 .toArray(Object[][]::new);
+        System.out.println("Loading customer data: " + customers);
         customerTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
     }
 
     private void loadEmptyRoomData() {
         String[] columnNames = {"Room Number", "Room Type", "Price", "Status"};
-        Object[][] data = roomController.getAllRooms().stream()
+        List<Room> rooms = roomController.getAllRooms();
+        Object[][] data = rooms.stream()
                 .filter(room -> room.getStatus().equals("Available"))
                 .map(room -> new Object[]{room.getRoomNumber(), room.getRoomType(), room.getPrice(), room.getStatus()})
                 .toArray(Object[][]::new);
+        System.out.println("Loading empty room data: " + rooms);
         emptyRoomTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
     }
 
     private void loadBookedRoomData() {
         String[] columnNames = {"Room Number", "Room Type", "Price", "Check In Date", "Services", "Total Price"};
-        Object[][] data = bookingController.getAllBookings().stream()
+        List<Booking> bookings = bookingController.getAllBookings();
+        Object[][] data = bookings.stream()
                 .filter(booking -> booking.getRoom().getStatus().equals("Occupied"))
                 .map(booking -> new Object[]{booking.getRoom().getRoomNumber(), booking.getRoom().getRoomType(), booking.getRoom().getPrice(), booking.getCheckInDate(), booking.getServices(), booking.getTotalPrice()})
                 .toArray(Object[][]::new);
+        System.out.println("Loading booked room data: " + bookings);
         bookedRoomTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
     }
 
     private void loadCheckedOutRoomData() {
         String[] columnNames = {"Room Number", "Room Type", "Customer Name", "Check In Date", "Check Out Date", "Total Price"};
-        Object[][] data = bookingController.getAllBookings().stream()
+        List<Booking> bookings = bookingController.getAllBookings();
+        Object[][] data = bookings.stream()
                 .filter(booking -> booking.getRoom().getStatus().equals("Available"))
                 .map(booking -> new Object[]{booking.getRoom().getRoomNumber(), booking.getRoom().getRoomType(), booking.getCustomer().getName(), booking.getCheckInDate(), booking.getCheckOutDate(), booking.getTotalPrice()})
                 .toArray(Object[][]::new);
+        System.out.println("Loading checked out room data: " + bookings);
         checkedOutRoomTable.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
     }
 

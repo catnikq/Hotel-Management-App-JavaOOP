@@ -15,7 +15,8 @@ import java.awt.event.ActionListener;
 
 public class AddEmployee extends JFrame {
     private EmployeeController employeeController;
-
+    private ViewData viewData;
+    
     private JTextField nameText;
     private JTextField addressText;
     private JTextField phoneNumberText;
@@ -25,8 +26,9 @@ public class AddEmployee extends JFrame {
     private JTextField salaryText;
     private JButton saveButton;
 
-    public AddEmployee(EmployeeController employeeController) {
+    public AddEmployee(EmployeeController employeeController, ViewData viewData) {
         this.employeeController = employeeController;
+        this.viewData = viewData;
         initComponents();
     }
 
@@ -91,6 +93,9 @@ public class AddEmployee extends JFrame {
 
         employeeController.addEmployee(employee);
         System.out.println("Employee added: " + employee);
+        if (viewData != null) {
+            viewData.loadData();
+        }
         JOptionPane.showMessageDialog(this, "Employee added successfully!");
     }
 
@@ -101,7 +106,7 @@ public class AddEmployee extends JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddEmployee(employeeController).setVisible(true);
+                new AddEmployee(employeeController, null).setVisible(true);
             }
         });
     }

@@ -30,6 +30,8 @@ public class employeeService {
     }
 
     public List<Employee> getAllEmployees() {
-        return employeeDAO.getAll();
+        List<Employee> employees = employeeDAO.getAll();
+        System.out.println("Retrieving all employees from DAO: " + employees);
+        return employees;
     }
 }

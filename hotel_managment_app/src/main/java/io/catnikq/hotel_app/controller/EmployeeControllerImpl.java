@@ -34,7 +34,9 @@ public class EmployeeControllerImpl implements EmployeeController {
 
     @Override
     public List<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
+        List<Employee> employees = employeeService.getAllEmployees();
+        System.out.println("Retrieving all employees: " + employees);
+        return employees;
     }
 
 }

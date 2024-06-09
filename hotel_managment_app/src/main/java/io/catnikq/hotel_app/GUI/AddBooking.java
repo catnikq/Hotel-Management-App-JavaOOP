@@ -30,6 +30,7 @@ public class AddBooking extends JFrame {
     private BookingController bookingController;
     private CustomerController customerController;
     private RoomController roomController;
+    private ViewData viewData;
 
     private JTextField nameText;
     private JTextField addressText;
@@ -40,10 +41,11 @@ public class AddBooking extends JFrame {
     private JTextField checkInDateText;
     private JButton saveButton;
 
-    public AddBooking(BookingController bookingController, CustomerController customerController, RoomController roomController) {
+    public AddBooking(BookingController bookingController, CustomerController customerController, RoomController roomController, ViewData viewData) {
         this.bookingController = bookingController;
         this.customerController = customerController;
         this.roomController = roomController;
+        this.viewData = viewData;
         initComponents();
     }
 
@@ -124,7 +126,9 @@ public class AddBooking extends JFrame {
         bookingController.addBooking(booking);
         room.setStatus("Occupied");
         roomController.updateRoom(room);
-
+        if (viewData != null) {
+            viewData.loadData();
+        }
         JOptionPane.showMessageDialog(this, "Booking added successfully!");
     }
 
@@ -143,7 +147,7 @@ public class AddBooking extends JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddBooking(bookingController, customerController, roomController).setVisible(true);
+                new AddBooking(bookingController, customerController, roomController, null).setVisible(true);
             }
         });
     }

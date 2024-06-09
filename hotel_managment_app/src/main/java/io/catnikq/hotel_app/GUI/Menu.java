@@ -55,22 +55,19 @@ public class Menu extends JFrame {
         JMenuItem addEmployeeMenuItem = new JMenuItem("Add a new Employee");
         addEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new AddEmployee(employeeController).setVisible(true);
-                viewData.loadData();
+                new AddEmployee(employeeController, viewData).setVisible(true);
             }
         });
         JMenuItem addBookingMenuItem = new JMenuItem("Book a Room");
         addBookingMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new AddBooking(bookingController, customerController, roomController).setVisible(true);
-                viewData.loadData();
+                new AddBooking(bookingController, customerController, roomController, viewData).setVisible(true);
             }
         });
         JMenuItem addRoomMenuItem = new JMenuItem("Add a new Room");
         addRoomMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new AddRoom(roomController).setVisible(true);
-                viewData.loadData();
+                new AddRoom(roomController, viewData).setVisible(true);
             }
         });
         addMenu.add(addEmployeeMenuItem);
@@ -84,14 +81,14 @@ public class Menu extends JFrame {
         editEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new EditEmployee(employeeController).setVisible(true);
-                viewData.loadData();
+
             }
         });
         JMenuItem editRoomMenuItem = new JMenuItem("Edit a Room");
         editRoomMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new EditRoom(roomController).setVisible(true);
-                viewData.loadData();
+
             }
         });
         editMenu.add(editEmployeeMenuItem);
@@ -104,14 +101,14 @@ public class Menu extends JFrame {
         checkOutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddCheckOut(roomController).setVisible(true);
-                viewData.loadData();
+
             }
         });
         JMenuItem addServiceMenuItem = new JMenuItem("Add extra Service");
         addServiceMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddService(bookingController, roomController).setVisible(true);
-                viewData.loadData();
+
             }
         });
         serviceMenu.add(checkOutMenuItem);

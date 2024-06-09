@@ -14,13 +14,16 @@ import java.awt.event.ActionListener;
 public class AddRoom extends JFrame {
 
     private RoomController roomController;
+    private ViewData viewData;
+    
     private JTextField roomTypeText;
     private JTextField priceText;
     private JTextField roomNumberText;
     private JButton saveButton;
 
-    public AddRoom(RoomController roomController) {
+    public AddRoom(RoomController roomController, ViewData viewData) {
         this.roomController = roomController;
+        this.viewData = viewData;
         initComponents();
     }
 
@@ -65,6 +68,9 @@ public class AddRoom extends JFrame {
         room.setStatus("Available");
 
         roomController.addRoom(room);
+        if (viewData != null) {
+            viewData.loadData();
+        }
         JOptionPane.showMessageDialog(this, "Room added successfully!");
     }
 
@@ -75,7 +81,7 @@ public class AddRoom extends JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddRoom(roomController).setVisible(true);
+                new AddRoom(roomController, null).setVisible(true);
             }
         });
     }

@@ -4,7 +4,7 @@ public class Service {
 
     private int serviceID;
     private String serviceName;
-    private String serviceDescription;
+//    private String serviceDescription;
     private double servicePrice;
 
     // Getters and Setters
@@ -24,13 +24,6 @@ public class Service {
         this.serviceName = serviceName;
     }
 
-    public String getServiceDescription() {
-        return serviceDescription;
-    }
-
-    public void setServiceDescription(String serviceDescription) {
-        this.serviceDescription = serviceDescription;
-    }
 
     public double getServicePrice() {
         return servicePrice;
