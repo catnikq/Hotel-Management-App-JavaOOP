@@ -1,6 +1,7 @@
 package inMemoryDAO;
 
 import io.catnikq.hotel_app.mockData.inMemoryDatabase;
+import static io.catnikq.hotel_app.mockData.inMemoryDatabase.bookings;
 import io.catnikq.hotel_app.model.Booking;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,14 @@ public class inMemoryBookingDAO implements BookingDAO {
     @Override
     public List<Booking> getAll() {
         return new ArrayList<>(inMemoryDatabase.bookings.values());
+    }
+
+    @Override
+    public Booking getByRoomNumber(int roomNumber) {
+        return bookings.values().stream()
+            .filter(booking -> booking.getRoom().getRoomNumber() == roomNumber)
+            .findFirst()
+            .orElse(null);
     }
 
 }

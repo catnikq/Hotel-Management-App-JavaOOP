@@ -9,6 +9,8 @@ public interface BookingController {
 
     Booking getBookingById(int bookingId);
 
+    Booking getBookingByRoomNumber(int roomNumber);
+
     void updateBooking(Booking booking);
 
     void deleteBooking(int bookingId);

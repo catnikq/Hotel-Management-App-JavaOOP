@@ -37,4 +37,9 @@ public class BookingControllerImpl implements BookingController {
         return bookingService.getAllBookings();
     }
 
+    @Override
+    public Booking getBookingByRoomNumber(int roomNumber) {
+        return bookingService.getBookingByRoomNumber(roomNumber);
+    }
+
 }

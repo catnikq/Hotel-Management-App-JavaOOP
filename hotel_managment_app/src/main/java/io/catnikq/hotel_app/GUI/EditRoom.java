@@ -47,9 +47,10 @@ public class EditRoom extends JFrame {
         priceText = new JTextField();
         add(priceText);
 
-        add(new JLabel("Status:"));
-        statusText = new JTextField();
-        add(statusText);
+        // Set status, removed for logic: status is set when AddBooking and AddCheckOut
+//        add(new JLabel("Status:"));
+//        statusText = new JTextField();
+//        add(statusText);
 
         updateButton = new JButton("Update");
         updateButton.addActionListener(new ActionListener() {

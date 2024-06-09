@@ -12,10 +12,6 @@ public class EmployeeControllerImpl implements EmployeeController {
         this.employeeService = employeeService;
     }
 
-    public EmployeeControllerImpl() {
-    }
-    
-
     @Override
     public void addEmployee(Employee employee) {
         employeeService.addEmployee(employee);

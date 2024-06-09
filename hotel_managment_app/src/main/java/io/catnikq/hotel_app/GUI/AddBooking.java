@@ -38,7 +38,6 @@ public class AddBooking extends JFrame {
     private JTextField genderText;
     private JTextField roomNumberText;
     private JTextField checkInDateText;
-    private JTextField checkOutDateText;
     private JButton saveButton;
 
     public AddBooking(BookingController bookingController, CustomerController customerController, RoomController roomController) {
@@ -53,7 +52,7 @@ public class AddBooking extends JFrame {
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(10, 2));
+        setLayout(new GridLayout(9, 2));
 
         add(new JLabel("Customer Name:"));
         nameText = new JTextField();
@@ -82,10 +81,6 @@ public class AddBooking extends JFrame {
         add(new JLabel("Check-In Date (YYYY-MM-DD):"));
         checkInDateText = new JTextField();
         add(checkInDateText);
-
-        add(new JLabel("Check-Out Date (YYYY-MM-DD):"));
-        checkOutDateText = new JTextField();
-        add(checkOutDateText);
 
         saveButton = new JButton("Save");
         saveButton.addActionListener(new ActionListener() {
@@ -121,7 +116,6 @@ public class AddBooking extends JFrame {
         booking.setRoom(room);
         try {
             booking.setCheckInDate(new SimpleDateFormat("yyyy-MM-dd").parse(checkInDateText.getText()));
-            booking.setCheckOutDate(new SimpleDateFormat("yyyy-MM-dd").parse(checkOutDateText.getText()));
         } catch (ParseException e) {
             JOptionPane.showMessageDialog(this, "Invalid date format.");
             return;

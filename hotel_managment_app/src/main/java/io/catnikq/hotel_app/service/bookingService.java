@@ -36,6 +36,10 @@ public class bookingService {
         return bookingDAO.getById(bookingId);
     }
 
+    public Booking getBookingByRoomNumber(int roomNumber) {
+        return bookingDAO.getByRoomNumber(roomNumber);
+    }
+    
     public void updateBooking(Booking booking) {
         bookingDAO.update(booking);
     }

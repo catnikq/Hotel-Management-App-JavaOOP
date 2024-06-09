@@ -9,6 +9,8 @@ public interface BookingDAO {
 
     Booking getById(int bookingId);
 
+    Booking getByRoomNumber(int roomNumber);
+
     void update(Booking booking);
 
     void delete(int bookingId);
