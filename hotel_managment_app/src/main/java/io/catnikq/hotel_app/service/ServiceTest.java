@@ -1,6 +1,15 @@
 package io.catnikq.hotel_app.service;
 
-import inMemoryDAO.*;
+import io.catnikq.hotel_app.inMemoryDAO.CustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.PaymentDAO;
+import io.catnikq.hotel_app.inMemoryDAO.BookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.EmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryPaymentDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryRoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryEmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryCustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryBookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.model.*;
 import java.util.Date;
 

@@ -1,6 +1,8 @@
 package io.catnikq.hotel_app.service;
 
-import inMemoryDAO.*;
+import io.catnikq.hotel_app.inMemoryDAO.CustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.BookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.model.Booking;
 import io.catnikq.hotel_app.model.Customer;
 import io.catnikq.hotel_app.model.Room;

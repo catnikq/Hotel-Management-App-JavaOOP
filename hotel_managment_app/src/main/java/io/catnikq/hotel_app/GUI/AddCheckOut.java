@@ -1,7 +1,7 @@
 package io.catnikq.hotel_app.GUI;
 
-import inMemoryDAO.RoomDAO;
-import inMemoryDAO.inMemoryRoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryRoomDAO;
 import io.catnikq.hotel_app.controller.RoomController;
 import io.catnikq.hotel_app.controller.RoomControllerImpl;
 import io.catnikq.hotel_app.model.Room;

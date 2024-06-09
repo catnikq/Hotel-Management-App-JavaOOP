@@ -1,11 +1,11 @@
 package io.catnikq.hotel_app.GUI;
 
-import inMemoryDAO.BookingDAO;
-import inMemoryDAO.CustomerDAO;
-import inMemoryDAO.RoomDAO;
-import inMemoryDAO.inMemoryBookingDAO;
-import inMemoryDAO.inMemoryCustomerDAO;
-import inMemoryDAO.inMemoryRoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.BookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.CustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryBookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryCustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryRoomDAO;
 import io.catnikq.hotel_app.controller.BookingController;
 import io.catnikq.hotel_app.controller.BookingControllerImpl;
 import io.catnikq.hotel_app.controller.CustomerController;

@@ -1,7 +1,7 @@
 package io.catnikq.hotel_app.GUI;
 
-import inMemoryDAO.EmployeeDAO;
-import inMemoryDAO.inMemoryEmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.EmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryEmployeeDAO;
 import io.catnikq.hotel_app.model.Employee;
 import io.catnikq.hotel_app.controller.EmployeeController;
 import io.catnikq.hotel_app.controller.EmployeeControllerImpl;
@@ -90,6 +90,7 @@ public class AddEmployee extends JFrame {
         employee.setPosition(positionText.getText());
 
         employeeController.addEmployee(employee);
+        System.out.println("Employee added: " + employee);
         JOptionPane.showMessageDialog(this, "Employee added successfully!");
     }
 

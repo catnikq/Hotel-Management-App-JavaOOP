@@ -1,6 +1,6 @@
 package io.catnikq.hotel_app.service;
 
-import inMemoryDAO.RoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.model.Room;
 
 import java.util.List;

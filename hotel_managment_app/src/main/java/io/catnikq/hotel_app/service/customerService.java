@@ -1,6 +1,6 @@
 package io.catnikq.hotel_app.service;
 
-import inMemoryDAO.CustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.CustomerDAO;
 import io.catnikq.hotel_app.model.Customer;
 
 import java.util.List;

@@ -1,7 +1,14 @@
 package io.catnikq.hotel_app.GUI;
 
+import io.catnikq.hotel_app.inMemoryDAO.CustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.BookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.EmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryRoomDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryEmployeeDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryCustomerDAO;
+import io.catnikq.hotel_app.inMemoryDAO.inMemoryBookingDAO;
+import io.catnikq.hotel_app.inMemoryDAO.RoomDAO;
 import io.catnikq.hotel_app.controller.*;
-import inMemoryDAO.*;
 import io.catnikq.hotel_app.service.*;
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +16,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JFrame {
+
     private EmployeeController employeeController;
     private CustomerController customerController;
     private RoomController roomController;
     private BookingController bookingController;
+    private ViewData viewData;
 
     public Menu(EmployeeController employeeController, CustomerController customerController, RoomController roomController, BookingController bookingController) {
         this.employeeController = employeeController;
@@ -23,7 +32,7 @@ public class Menu extends JFrame {
     }
 
     private void initComponents() {
-        setTitle("Hotel Management System"); 
+        setTitle("Hotel Management System");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -47,18 +56,21 @@ public class Menu extends JFrame {
         addEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddEmployee(employeeController).setVisible(true);
+                viewData.loadData();
             }
         });
         JMenuItem addBookingMenuItem = new JMenuItem("Book a Room");
         addBookingMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddBooking(bookingController, customerController, roomController).setVisible(true);
+                viewData.loadData();
             }
         });
         JMenuItem addRoomMenuItem = new JMenuItem("Add a new Room");
         addRoomMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddRoom(roomController).setVisible(true);
+                viewData.loadData();
             }
         });
         addMenu.add(addEmployeeMenuItem);
@@ -72,12 +84,14 @@ public class Menu extends JFrame {
         editEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new EditEmployee(employeeController).setVisible(true);
+                viewData.loadData();
             }
         });
         JMenuItem editRoomMenuItem = new JMenuItem("Edit a Room");
         editRoomMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new EditRoom(roomController).setVisible(true);
+                viewData.loadData();
             }
         });
         editMenu.add(editEmployeeMenuItem);
@@ -90,12 +104,14 @@ public class Menu extends JFrame {
         checkOutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddCheckOut(roomController).setVisible(true);
+                viewData.loadData();
             }
         });
         JMenuItem addServiceMenuItem = new JMenuItem("Add extra Service");
         addServiceMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new AddService(bookingController, roomController).setVisible(true);
+                viewData.loadData();
             }
         });
         serviceMenu.add(checkOutMenuItem);
@@ -104,7 +120,7 @@ public class Menu extends JFrame {
 
         setJMenuBar(menuBar);
 
-        // Add ViewDataFrame for viewing data
+        // Add ViewData for viewing data
         ViewData viewDataFrame = new ViewData(employeeController, customerController, roomController, bookingController);
         add(viewDataFrame.getContentPane(), BorderLayout.CENTER);
 

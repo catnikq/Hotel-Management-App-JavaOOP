@@ -1,4 +1,4 @@
-package inMemoryDAO;
+package io.catnikq.hotel_app.inMemoryDAO;
 
 import io.catnikq.hotel_app.model.Room;
 import java.util.List;
